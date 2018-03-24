@@ -52,7 +52,7 @@ public class Slider_Controller : MonoBehaviour {
 		{
 			flagOne = true;
 			Destroy (oneQuarter.gameObject);
-			abyss.GetComponent<FollowerDeadZone>().Speed = 2.5f;
+			abyss.GetComponent<FollowerDeadZone>().Speed = 3.0f;
 			foreach (Transform spawn in spawns) {
 				Instantiate(hook, spawn.transform.position, spawn.transform.rotation); 
 			}
