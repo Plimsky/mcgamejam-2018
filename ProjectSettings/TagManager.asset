@@ -8,6 +8,8 @@ TagManager:
   - TriggerZoneStable
   - TriggerZoneDecelerate
   - EndMarker
+  - Abyss
+  - HookSpawn
   layers:
   - Default
   - TransparentFX
