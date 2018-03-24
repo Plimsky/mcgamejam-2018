@@ -1,4 +1,4 @@
-﻿﻿using System.Collections; 
+﻿using System.Collections; 
 using System; 
 using System.Collections.Generic; 
 using UnityEngine; 
@@ -10,7 +10,6 @@ public class Resume_onClick : MonoBehaviour {
 		b.onClick.AddListener (LoadLevel); 
 	} 
 	void LoadLevel(){ 
-		Debug.Log ("RESUMING"); 
 		UiInGameManager.Instance.ResumeLevel (); 
 	} 
 } 
