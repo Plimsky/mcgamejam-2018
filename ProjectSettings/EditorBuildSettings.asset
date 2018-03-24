@@ -11,3 +11,6 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Main.unity
     guid: fdd37ddf91bd54845b947abbb1cc671a
+  - enabled: 1
+    path: Assets/Scenes/Tests/GameLoop/TestGameLoop.unity
+    guid: a5347fd3717723342ae2e54fe3903fce
