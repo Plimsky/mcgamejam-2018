@@ -14,6 +14,7 @@ public class PlayerController : MonoBehaviour
     public float moveForce = 365f;
     public float maxSpeed = 5f;
     public float jumpForce = 1000f;
+    public float dashFall = 30f;
     public LayerMask groundLayer;
     public float WaitTimeToRejump = 0.3f;
     public float WaitTimeToReDash = 0.3f;
@@ -25,6 +26,7 @@ public class PlayerController : MonoBehaviour
 
     private bool grounded = false;
     private bool jumpable;
+    private bool slowDownDash = false;
     private Animator anim;
     private Rigidbody2D rb;
 
@@ -81,6 +83,15 @@ public class PlayerController : MonoBehaviour
         if (dash && !isDashing)
             StartCoroutine(Dash(DashTime));
 
+        if(slowDownDash)
+        {
+            rb.AddForce(Vector2.down * dashFall * Time.deltaTime, ForceMode2D.Force);
+            if(Mathf.Abs(rb.velocity.x) < speed)
+            {
+                slowDownDash = false;
+            }
+        }
+
         if (jump)
         {
             Instantiate(ParticleToSpawnOnJump, SpawnTransform.position, Quaternion.identity);
@@ -97,7 +108,6 @@ public class PlayerController : MonoBehaviour
         float time = 0;
         isDashing = true;
         dash = false;
-        Vector2 oldVelocity = new Vector2(rb.velocity.x, rb.velocity.y);
 
         while (dashDur > time)
         {
@@ -107,7 +117,7 @@ public class PlayerController : MonoBehaviour
         }
 
         StartCoroutine(WaitBeforeDash());
-        rb.velocity = oldVelocity;
+        slowDownDash = true;
     }
 
     private IEnumerator WaitBeforeJumpable()
