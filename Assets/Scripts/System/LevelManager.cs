@@ -1,9 +1,13 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using UnityEngine;
+using Utils;
 
 namespace System
 {
     public class LevelManager : MonoBehaviour
     {
+        public float TimeToWaitBeforeReloadLevel = 2f;
+
         public static LevelManager Instance;
 
         #region Events
@@ -35,8 +39,22 @@ namespace System
             }
 
             OnLevelStart += SetupLevel;
+            OnLevelStart += UiInGameManager.Instance.StartLevel;
             OnLevelEnd += ClearLevel;
-            OnPlayerDied += SessionManager.Instance.ReloadActualScene;
+            OnLevelEnd += UiInGameManager.Instance.EndLevel;
+            OnPlayerDied += ReloadLevel;
+            OnPlayerDied += UiInGameManager.Instance.PlayerDied;
+        }
+
+        private void ReloadLevel()
+        {
+            StartCoroutine(WaitBeforeReloadLevel());
+        }
+
+        private IEnumerator WaitBeforeReloadLevel()
+        {
+            yield return new WaitForSeconds(TimeToWaitBeforeReloadLevel);
+            SessionManager.Instance.ReloadActualScene();
         }
 
         public void StartLevel()
@@ -50,6 +68,8 @@ namespace System
             Debug.Log("Player Died");
             if (OnPlayerDied != null)
                 OnPlayerDied();
+
+            StartCoroutine(Camera.main.gameObject.GetComponent<CameraShake>().Shake(.1f, 1f));
         }
 
         public void PlayerWin()
