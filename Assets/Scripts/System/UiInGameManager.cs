@@ -21,12 +21,16 @@ namespace System
                 Destroy(gameObject);
             }
         }
-		void Update(){ 
-			if (Input.GetKeyDown (KeyCode.P) && DiedText.activeSelf == false) { 
+		void Update()
+		{ 
+			if (Input.GetKeyDown (KeyCode.P) && DiedText.activeSelf == false) 
+			{
 				if (Time.timeScale != 0.0f)  
 				{ 
 					PauseLevel (); 
-				} else { 
+				} 
+				else 
+				{ 
 					ResumeLevel (); 
 				} 
 			} 
