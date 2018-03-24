@@ -14,6 +14,7 @@ public class Play_onClick : MonoBehaviour {
 	}
 	void LoadLevel(){
 		Debug.Log (levelName);
+		Time.timeScale = 1.0f;
 		UnityEngine.SceneManagement.SceneManager.LoadScene (levelName);
 	}
 }
