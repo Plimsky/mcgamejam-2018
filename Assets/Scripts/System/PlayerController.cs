@@ -19,6 +19,9 @@ public class PlayerController : MonoBehaviour
     public float WaitTimeToReDash = 0.3f;
     public float DashTime = 0.2f;
 
+    public GameObject ParticleToSpawnOnJump;
+    public Transform SpawnTransform;
+
     private bool grounded = false;
     private bool jumpable;
     private Animator anim;
@@ -75,6 +78,7 @@ public class PlayerController : MonoBehaviour
 
         if (jump)
         {
+            Instantiate(ParticleToSpawnOnJump, SpawnTransform.position, Quaternion.identity);
             anim.SetTrigger("Jump");
             rb.AddForce(new Vector2(0f, jumpForce));
             jump = false;
