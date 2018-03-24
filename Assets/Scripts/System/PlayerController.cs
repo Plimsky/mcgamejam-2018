@@ -6,8 +6,13 @@ public class PlayerController : MonoBehaviour
 {
     [HideInInspector]
     public bool jump = false;
+    [HideInInspector]
+    public bool dash = false;
+
+    private bool isDashing = false;
 
     public float speed = 2f;
+    public float dashSpeed = 4f;
     public float moveForce = 365f;
     public float maxSpeed = 5f;
     public float jumpForce = 1000f;
@@ -15,10 +20,12 @@ public class PlayerController : MonoBehaviour
 
     private bool grounded = false;
     private Animator anim;
+    private Rigidbody2D rb;
 
     void Awake()
     {
         anim = GetComponent<Animator>();
+        rb = GetComponent<Rigidbody2D>();
     }
 
     // Update is called once per frame
@@ -27,23 +34,47 @@ public class PlayerController : MonoBehaviour
         grounded = (Physics2D.Raycast(transform.position, Vector2.down, 1.0f, groundLayer).collider != null) ? true : false;
         if (Input.GetButtonDown("Jump") && grounded)
             jump = true;
+        if (Input.GetButtonDown("Fire2") && grounded)
+            dash = true;
     }
 
     void FixedUpdate()
     {
         anim.SetFloat("Speed", Mathf.Abs(speed));
 
-        if (speed * GetComponent<Rigidbody2D>().velocity.x < maxSpeed)
-            GetComponent<Rigidbody2D>().AddForce(Vector2.right * speed * moveForce);
+        if (!isDashing)
+        {
+            if (speed * rb.velocity.x < maxSpeed)
+                rb.AddForce(Vector2.right * speed * moveForce);
 
-        if (Mathf.Abs(GetComponent<Rigidbody2D>().velocity.x) > maxSpeed)
-            GetComponent<Rigidbody2D>().velocity = new Vector2(Mathf.Sign(GetComponent<Rigidbody2D>().velocity.x) * maxSpeed, GetComponent<Rigidbody2D>().velocity.y);
+            if (Mathf.Abs(rb.velocity.x) > maxSpeed)
+                rb.velocity = new Vector2(Mathf.Sign(rb.velocity.x) * maxSpeed, rb.velocity.y);
+        }
+
+        if (dash)
+        {
+            Debug.Log("Dash!");
+            StartCoroutine(Dash(0.2f));
+        }
 
         if(jump)
         {
-            anim.SetTrigger("Jump");
-            GetComponent<Rigidbody2D>().AddForce(new Vector2(0f, jumpForce));
+            rb.AddForce(new Vector2(0f, jumpForce));
             jump = false;
         }
+    }
+
+    IEnumerator Dash(float dashDur)
+    {
+        float time = 0;
+        isDashing = true;
+        dash = false;
+        while(dashDur > time)
+        {
+            time += Time.deltaTime;
+            rb.velocity = new Vector2(dashSpeed, 0);
+            yield return 0;
+        }
+        isDashing = false;
     }
 }
