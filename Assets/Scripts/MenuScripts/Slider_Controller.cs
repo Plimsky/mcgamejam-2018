@@ -8,11 +8,17 @@ public class Slider_Controller : MonoBehaviour {
 	private Slider slider;
 	private Vector3 startPos;
 	private Transform player;
+	private Transform abyss; 
 	private float fps = 20;
 
 	public Transform endPos;
 	public Image relevant;
 	public Sprite[] frames;
+
+	public Transform hookSpawn1; 
+	public GameObject hook1; 
+
+	public Transform[] spawns;
 
 	public Color claimedColour;
 
@@ -24,6 +30,8 @@ public class Slider_Controller : MonoBehaviour {
 		player = GameObject.FindGameObjectWithTag ("Player").transform;
 		startPos = player.position;
 		endPos = GameObject.FindGameObjectWithTag ("EndMarker").transform;
+
+		abyss = GameObject.FindGameObjectWithTag ("Abyss").transform;
 
 
 		flagOne = false; 
@@ -44,6 +52,11 @@ public class Slider_Controller : MonoBehaviour {
 		{
 			flagOne = true;
 			Destroy (oneQuarter.gameObject);
+			abyss.GetComponent<FollowerDeadZone>().Speed = 3.0f;
+			foreach (Transform spawn in spawns) {
+				Instantiate(hook1, spawn.transform.position, spawn.transform.rotation); 
+			}
+			
 		}
 		else if (slider.value >= .5f && !flagTwo) 
 		{
