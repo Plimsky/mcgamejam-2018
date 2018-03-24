@@ -28,7 +28,7 @@ public class Slider_Controller : MonoBehaviour {
 		slider = transform.GetComponentInChildren<Slider> ();
 		player = GameObject.FindGameObjectWithTag ("Player").transform;
 		startPos = player.position;
-		endPos = GameObject.FindGameObjectWithTag ("EndMarker").transform;
+	    endPos = GameObject.FindGameObjectWithTag ("EndMarker").transform;
 
 		abyss = GameObject.FindGameObjectWithTag ("Abyss").transform;
 
@@ -44,6 +44,7 @@ public class Slider_Controller : MonoBehaviour {
 	// Update is called once per frame
 	void Update () 
 	{
+		
 		relevant.sprite = frames [(int)(Time.time * fps) % frames.Length];
 		slider.value = (player.position.x - startPos.x) / (endPos.position.x - startPos.x) * 4;
 
@@ -51,7 +52,7 @@ public class Slider_Controller : MonoBehaviour {
 		{
 			flagOne = true;
 			Destroy (oneQuarter.gameObject);
-			abyss.GetComponent<FollowerDeadZone>().Speed = 3.0f;
+			abyss.GetComponent<FollowerDeadZone>().Speed = 2.5f;
 			foreach (Transform spawn in spawns) {
 				Instantiate(hook, spawn.transform.position, spawn.transform.rotation); 
 			}
