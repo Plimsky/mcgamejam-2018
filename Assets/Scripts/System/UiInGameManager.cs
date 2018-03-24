@@ -13,8 +13,8 @@ namespace System
         {
             if (Instance == null)
             {
-                Instance = this;
-                DontDestroyOnLoad(gameObject);
+				Instance = this;
+				DontDestroyOnLoad(gameObject);
             }
             else
             {
