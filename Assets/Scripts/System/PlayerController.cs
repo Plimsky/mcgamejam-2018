@@ -50,11 +50,15 @@ public class PlayerController : MonoBehaviour
         else
             anim.ResetTrigger("TouchGround");
 
-        if (Input.GetButtonDown("Jump") && grounded && jumpable)
+        if (Input.GetButtonDown("Jump") && grounded && jumpable && !(Input.GetAxis("Vertical") < 0))
+        {
             jump = true;
-
-        if (Input.GetButtonDown("Fire2") && !grounded)
+        }
+            
+        if (Input.GetButtonDown("Jump") && (Input.GetAxis("Vertical") < 0))
+        {
             dash = true;
+        }
     }
 
     void FixedUpdate()
