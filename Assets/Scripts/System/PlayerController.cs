@@ -19,6 +19,7 @@ public class PlayerController : MonoBehaviour
     public float WaitTimeToReDash = 0.3f;
     public float DashTime = 0.2f;
 
+    public GameObject SpriteJumpSmoke;
     public GameObject ParticleToSpawnOnJump;
     public Transform SpawnTransform;
 
@@ -52,7 +53,7 @@ public class PlayerController : MonoBehaviour
         if (Input.GetButtonDown("Jump") && grounded && jumpable)
             jump = true;
 
-        if (Input.GetButtonDown("Fire2") && grounded)
+        if (Input.GetButtonDown("Fire2") && !grounded)
             dash = true;
     }
 
@@ -78,7 +79,8 @@ public class PlayerController : MonoBehaviour
 
         if (jump)
         {
-            //Instantiate(ParticleToSpawnOnJump, SpawnTransform.position, Quaternion.identity);
+            Instantiate(ParticleToSpawnOnJump, SpawnTransform.position, Quaternion.identity);
+            Instantiate(SpriteJumpSmoke, SpawnTransform.position, Quaternion.identity);
             anim.SetTrigger("Jump");
             rb.AddForce(new Vector2(0f, jumpForce));
             jump = false;
@@ -97,7 +99,6 @@ public class PlayerController : MonoBehaviour
         {
             time += Time.deltaTime;
             rb.velocity = new Vector2(dashSpeed, 0);
-            //rb.AddForce(new Vector2(dashSpeed, 0));
             yield return null;
         }
 
