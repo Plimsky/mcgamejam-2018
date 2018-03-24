@@ -123,6 +123,7 @@ GameObject:
   - component: {fileID: 150374577}
   - component: {fileID: 150374579}
   - component: {fileID: 150374578}
+  - component: {fileID: 150374580}
   m_Layer: 5
   m_Name: Panel
   m_TagString: Untagged
@@ -169,7 +170,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: a33a47d58e19aef4282786445c23a5dc, type: 3}
+  m_Sprite: {fileID: 21300000, guid: a7cd52f322e31804f9f60754750887a8, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -183,6 +184,23 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 150374576}
+--- !u!114 &150374580
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 150374576}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8e65262c2bf6e4b43ba03838b6d2728b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  frames:
+  - {fileID: 10300, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 10305, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 10910, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 10914, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 10904, guid: 0000000000000000f000000000000000, type: 0}
 --- !u!1 &158146655
 GameObject:
   m_ObjectHideFlags: 0
@@ -599,7 +617,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.27205884, g: 0.27205884, b: 0.27205884, a: 1}
+  m_Color: {r: 0.27058825, g: 0.27058825, b: 0.27058825, a: 0.37254903}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -629,7 +647,7 @@ Animator:
   m_GameObject: {fileID: 974752105}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: e6531782604d8ce4ca428906dc334ba4, type: 2}
+  m_Controller: {fileID: 9100000, guid: d85e45a8b39027e4d8e439e803bad38b, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -751,7 +769,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.27205884, g: 0.27205884, b: 0.27205884, a: 1}
+  m_Color: {r: 0.27058825, g: 0.27058825, b: 0.27058825, a: 0.37254903}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -781,7 +799,7 @@ Animator:
   m_GameObject: {fileID: 1414917554}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 601a9cf11a5dadd4ab4665c2308c4f84, type: 2}
+  m_Controller: {fileID: 9100000, guid: fa2a63068766bbe46b6c7165be35ab55, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
