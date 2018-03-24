@@ -20,7 +20,9 @@ public class Menu_Background_Anim : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		int index = (frames.Length > 0) ? (int)(Time.time * fps) % frames.Length : 0;
-		transform.GetComponent<CanvasRenderer> ().SetTexture (frames[index]);
+		int index = (frames.Length > 0) ? (int)(Time.time * fps) % frames.Length : -1;
+
+		if (index >= 0)
+			transform.GetComponent<CanvasRenderer> ().SetTexture (frames[index]);
 	}
 }
