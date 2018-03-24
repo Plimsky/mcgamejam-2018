@@ -78,7 +78,7 @@ public class PlayerController : MonoBehaviour
 
         if (jump)
         {
-            Instantiate(ParticleToSpawnOnJump, SpawnTransform.position, Quaternion.identity);
+            //Instantiate(ParticleToSpawnOnJump, SpawnTransform.position, Quaternion.identity);
             anim.SetTrigger("Jump");
             rb.AddForce(new Vector2(0f, jumpForce));
             jump = false;

@@ -14,17 +14,46 @@ public class Slider_Controller : MonoBehaviour {
 	public Image relevant;
 	public Sprite[] frames;
 
-	void Start () {
+	public Color claimedColour;
+
+	private bool flagOne, flagTwo, flagThree;
+	private Image oneQuarter, oneHalf, threeQuarter;
+	void Start () 
+	{
 		slider = transform.GetComponentInChildren<Slider> ();
 		player = GameObject.FindGameObjectWithTag ("Player").transform;
 		startPos = player.position;
 		endPos = GameObject.FindGameObjectWithTag ("EndMarker").transform;
+
+
+		flagOne = false; 
+		flagTwo = false; 
+		flagThree = false;
+		oneQuarter = (Image)GameObject.Find ("OneQuarterMarker").GetComponent<Image>();
+		oneHalf = (Image)GameObject.Find ("HalfWayMarker").GetComponent<Image>();
+		threeQuarter = (Image)GameObject.Find ("ThreeQuartersMarker").GetComponent<Image>();
 	}
 	
 	// Update is called once per frame
-	void Update () {
-		relevant.sprite = frames[(int)(Time.time * fps) % frames.Length];
-		Debug.Log (startPos.x + " " + player.position.x + " " + endPos.position.x);
+	void Update () 
+	{
+		relevant.sprite = frames [(int)(Time.time * fps) % frames.Length];
 		slider.value = (player.position.x - startPos.x) / (endPos.position.x - startPos.x);
+
+		if (slider.value >= .25f && !flagOne) 
+		{
+			flagOne = true;
+			Destroy (oneQuarter.gameObject);
+		}
+		else if (slider.value >= .5f && !flagTwo) 
+		{
+			flagTwo = true;
+			Destroy (oneHalf.gameObject);
+		} 
+		else if (slider.value >= .75f && !flagThree) 
+		{
+			flagThree = true;
+			Destroy (threeQuarter.gameObject);
+		}
 	}
 }
