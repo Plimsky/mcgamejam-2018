@@ -778,7 +778,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 286c28fc13d14ed4bb17f6e6926f4941, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  endPos: {fileID: 0}
+  endPos: {fileID: 4423190280229986}
   relevant: {fileID: 114786057008878230}
   frames:
   - {fileID: 21300000, guid: a5d3c967f88f97044aee84262be44c27, type: 3}
@@ -801,7 +801,26 @@ MonoBehaviour:
   - {fileID: 21300034, guid: a5d3c967f88f97044aee84262be44c27, type: 3}
   - {fileID: 21300036, guid: a5d3c967f88f97044aee84262be44c27, type: 3}
   - {fileID: 21300038, guid: a5d3c967f88f97044aee84262be44c27, type: 3}
-  claimedColour: {r: 0.5, g: 0, b: 0, a: 0}
+  progressSpeed: 10
+  hooks:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  teethSpawn:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  eyeSpawn:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  teethPrefab: {fileID: 1872653699187266, guid: b1adb752ef661f94ba5ff55a1ce8356b,
+    type: 2}
+  eyePrefab: {fileID: 1031414253961824, guid: 0a6b122238e12c74998eacc5c3ccb67d, type: 2}
+  claimedColour: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &114592120600655520
 MonoBehaviour:
   m_ObjectHideFlags: 1
