@@ -61,8 +61,10 @@ public class PlayerController : MonoBehaviour
             
         if (Input.GetButtonDown("Jump") && (Input.GetAxis("Vertical") < 0))
         {
-            dash = true;
-            anim.SetTrigger("Dash"); 
+            if (!isDead) {
+                dash = true;
+                anim.SetTrigger("Dash"); 
+            }
         }
     }
 
