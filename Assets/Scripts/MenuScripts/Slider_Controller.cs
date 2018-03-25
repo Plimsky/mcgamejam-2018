@@ -133,7 +133,7 @@ public class Slider_Controller : MonoBehaviour {
 			
 				hookTransform.rotation =  Quaternion.Euler(0, 0, Random.Range(-10f, 10f)); 
 				newPos.y = newPos.y + Random.Range(-0.5f, 0.5f); 
-				newPos.x = newPos.x += Random.Range(0.0f, 1.5f); 
+				newPos.x = newPos.x += Random.Range(0.0f, 0.5f); 
 				
 				hooks[i].transform.position = newPos; 
 				anim.SetTrigger("pierceTrigger"); 
