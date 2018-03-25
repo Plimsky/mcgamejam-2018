@@ -68,8 +68,6 @@ namespace System
             Debug.Log("Player Died");
             if (OnPlayerDied != null)
                 OnPlayerDied();
-
-          StartCoroutine(Camera.main.gameObject.GetComponent<CameraShake>().Shake(.1f, 1f));
         }
 
         public void PlayerWin()
