@@ -64,7 +64,6 @@ public class PlayerController : MonoBehaviour
         if (Input.GetButtonDown("Jump") && (Input.GetAxis("Vertical") < 0))
         {
             if (!isDead) {
-                Debug.Log("Read dash input, dash: "+ dash + ", isdashing: "+ isDashing);
                 dash = true;
                 anim.SetTrigger("Dash"); 
             }
@@ -87,7 +86,6 @@ public class PlayerController : MonoBehaviour
 
         if (dash && !isDashing)
         {
-            Debug.Log("Starting Dash Coroutine, dash: " + dash + ", isdashing: " + isDashing);
             StartCoroutine(Dash(DashTime));
         }
 
@@ -122,7 +120,6 @@ public class PlayerController : MonoBehaviour
             rb.velocity = new Vector2(dashSpeed, 0);
             yield return null;
         }
-        Debug.Log("Start dash cooldown, dash: " + dash + ", isdashing: " + isDashing);
         StartCoroutine(WaitBeforeDash());
         slowDownDash = true;
     }
