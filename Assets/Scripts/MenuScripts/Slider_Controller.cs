@@ -15,9 +15,10 @@ public class Slider_Controller : MonoBehaviour {
 	public Image relevant;
 	public Sprite[] frames;
 
-	public GameObject hook; 
 
-	public Transform[] spawns;
+	public Hook[] hooks;
+	//private float timeToStrike; 
+	//private float strikeRate = 4.0f; 
 
 	public Color claimedColour;
 
@@ -31,7 +32,7 @@ public class Slider_Controller : MonoBehaviour {
 	    endPos = GameObject.FindGameObjectWithTag ("EndMarker").transform;
 
 		abyss = GameObject.FindGameObjectWithTag ("Abyss").transform;
-
+		
 
 		flagOne = false; 
 		flagTwo = false; 
@@ -46,16 +47,15 @@ public class Slider_Controller : MonoBehaviour {
 	{
 		
 		relevant.sprite = frames [(int)(Time.time * fps) % frames.Length];
-		slider.value = (player.position.x - startPos.x) / (endPos.position.x - startPos.x) * 4;
+		slider.value = (player.position.x - startPos.x) / (endPos.position.x - startPos.x) * 2;
+	   
 
 		if (slider.value >= .25f && !flagOne) 
 		{
 			flagOne = true;
+			StartCoroutine("SpawnCoroutine");
 			Destroy (oneQuarter.gameObject);
 			abyss.GetComponent<FollowerDeadZone>().Speed = 3.0f;
-			foreach (Transform spawn in spawns) {
-				Instantiate(hook, spawn.transform.position, spawn.transform.rotation); 
-			}
 			
 		}
 		else if (slider.value >= .5f && !flagTwo) 
@@ -69,4 +69,24 @@ public class Slider_Controller : MonoBehaviour {
 			Destroy (threeQuarter.gameObject);
 		}
 	}
+
+	IEnumerator SpawnCoroutine() {
+		float waitTime = 0.35f;
+		float betweenLoops = 1f;  
+		while (true) {
+			for (int i = 0; i < 4; i++) {
+				Animator anim;
+				anim = hooks[i].transform.GetComponent<Animator>();
+				Vector2 newPos = new Vector2 (hooks[i].transform.position.x, player.position.y); 
+				newPos.y = newPos.y + Random.Range(-0.5f, 0.5f); 
+				newPos.x = newPos.x += Random.Range(0.0f, 2.0f); 
+				hooks[i].transform.position = newPos; 
+				anim.SetTrigger("pierceTrigger"); 
+				yield return new WaitForSeconds(waitTime); 
+			}
+			yield return new WaitForSeconds(betweenLoops); 
+		}
+	}
+
+
 }
