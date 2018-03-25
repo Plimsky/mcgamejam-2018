@@ -50,9 +50,11 @@ public class PlayerController : MonoBehaviour
             StartCoroutine(WaitBeforeJumpable());
 
         if (grounded && anim.GetCurrentAnimatorStateInfo(0).IsName("PlayerFalling"))
+        {
             anim.SetTrigger("TouchGround");
-        else
+        } else  {
             anim.ResetTrigger("TouchGround");
+        }
 
         if (Input.GetButtonDown("Jump") && grounded && jumpable && !(Input.GetAxis("Vertical") < 0))
         {
@@ -62,6 +64,7 @@ public class PlayerController : MonoBehaviour
         if (Input.GetButtonDown("Jump") && (Input.GetAxis("Vertical") < 0))
         {
             if (!isDead) {
+                Debug.Log("Read dash input, dash: "+ dash + ", isdashing: "+ isDashing);
                 dash = true;
                 anim.SetTrigger("Dash"); 
             }
@@ -73,10 +76,6 @@ public class PlayerController : MonoBehaviour
         anim.SetFloat("Speed", Mathf.Abs(speed));
         anim.SetFloat("VelocityFalling", GetComponent<Rigidbody2D>().velocity.y);
 
-/* 
-        if (GetComponent<Rigidbody2D>().velocity.y < 0)
-            jumpable = false;*/
-
         if (!isDashing)
         {
             if (speed * GetComponent<Rigidbody2D>().velocity.x < maxSpeed)
@@ -87,9 +86,12 @@ public class PlayerController : MonoBehaviour
         }
 
         if (dash && !isDashing)
+        {
+            Debug.Log("Starting Dash Coroutine, dash: " + dash + ", isdashing: " + isDashing);
             StartCoroutine(Dash(DashTime));
+        }
 
-        if(slowDownDash)
+        if (slowDownDash)
         {
             rb.AddForce(Vector2.down * dashFall * Time.deltaTime, ForceMode2D.Force);
             if(Mathf.Abs(rb.velocity.x) < speed)
@@ -113,7 +115,6 @@ public class PlayerController : MonoBehaviour
     {
         float time = 0;
         isDashing = true;
-        dash = false;
 
         while (dashDur > time)
         {
@@ -121,7 +122,7 @@ public class PlayerController : MonoBehaviour
             rb.velocity = new Vector2(dashSpeed, 0);
             yield return null;
         }
-
+        Debug.Log("Start dash cooldown, dash: " + dash + ", isdashing: " + isDashing);
         StartCoroutine(WaitBeforeDash());
         slowDownDash = true;
     }
@@ -136,6 +137,7 @@ public class PlayerController : MonoBehaviour
     {
         yield return new WaitForSeconds(WaitTimeToReDash);
         isDashing = false;
+        dash = false;
     }
 
     void playerDies() {
