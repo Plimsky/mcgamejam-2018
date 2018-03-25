@@ -49,7 +49,6 @@ public class Slider_Controller : MonoBehaviour {
 		eyeSpawn = GameObject.FindGameObjectsWithTag("EyeSpawn"); 
 		hooks = GameObject.FindGameObjectsWithTag("Hook"); 
 		
-
 		flagOne = false; 
 		flagTwo = false; 
 		flagThree = false;
@@ -94,14 +93,17 @@ public class Slider_Controller : MonoBehaviour {
 		{
 			flagOne = true;
 			StartCoroutine("SpawnCoroutine");
-			//Destroy (oneQuarter.gameObject);
-			abyss.GetComponent<FollowerDeadZone>().Speed = 3.25f;
+            //Destroy (oneQuarter.gameObject);
+
+            abyss.GetComponent<FollowerDeadZone>().Speed = 3.25f;
             source.PlayOneShot(roarNoise1,0.25f);
 		}
 		else if (slider.value >= .5f && !flagTwo) 
 		{
 			flagTwo = true;
+			StopAllCoroutines(); 
 			spawnTeeth();
+			StartCoroutine("SpeedBite");
 			//Destroy (oneHalf.gameObject);
 			abyss.GetComponent<FollowerDeadZone>().Speed = 3.7f;
             source.PlayOneShot(roarNoise2, 0.5f);
@@ -116,9 +118,10 @@ public class Slider_Controller : MonoBehaviour {
 	}
 
 	void spawnTeeth() {
+
 		foreach(GameObject spawn in teethSpawn) {
-			var tooth = Object.Instantiate(teethPrefab, spawn.transform.position, spawn.transform.rotation); 
-			tooth.transform.parent = spawn.transform.parent; 
+			var teeth = Object.Instantiate(teethPrefab, spawn.transform.position, spawn.transform.rotation); 
+			teeth.transform.parent = spawn.transform.parent; 
 		}
 	}
 
@@ -126,6 +129,18 @@ public class Slider_Controller : MonoBehaviour {
 		foreach(GameObject spawn in eyeSpawn) {
 			var eye = Object.Instantiate(eyePrefab, spawn.transform.position, spawn.transform.rotation); 
 			eye.transform.parent = spawn.transform.parent; 
+		}
+	}
+	IEnumerator SpeedBite() {
+		float timeToCharge = 4.0f; 
+		float timeToSlow = 1.0f; 
+
+		while (true) {
+			abyss.GetComponent<FollowerDeadZone>().Speed = 3.5f;
+			yield return new WaitForSeconds(timeToCharge); 
+
+			abyss.GetComponent<FollowerDeadZone>().Speed = 5.0f;  
+			yield return new WaitForSeconds(timeToSlow);
 		}
 	}
 
