@@ -356,7 +356,7 @@ Prefab:
     - target: {fileID: 114405238866235148, guid: 6a73dd8cb85948340adecfcabce8b090,
         type: 2}
       propertyPath: levelName
-      value: Assets/Scenes/Tests/Animations/TestEnemiesAnimations.unity
+      value: Assets/Scenes/MainGame.unity
       objectReference: {fileID: 0}
     - target: {fileID: 114161274013187844, guid: 6a73dd8cb85948340adecfcabce8b090,
         type: 2}
