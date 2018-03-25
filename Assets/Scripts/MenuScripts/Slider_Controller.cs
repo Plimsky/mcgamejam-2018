@@ -63,7 +63,7 @@ public class Slider_Controller : MonoBehaviour {
 	{
 		
 		relevant.sprite = frames [(int)(Time.time * fps) % frames.Length];
-		slider.value = (player.position.x - startPos.x) / (endPos.position.x - startPos.x) * 2;
+		slider.value = (player.position.x - startPos.x) / (endPos.position.x - startPos.x) * 3.5f;
 	   
 
 		if (slider.value >= .25f && !flagOne) 

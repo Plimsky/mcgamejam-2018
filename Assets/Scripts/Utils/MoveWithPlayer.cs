@@ -17,7 +17,7 @@ public class MoveWithPlayer : MonoBehaviour {
         if(Mathf.Abs(offset.y) > 0.0f)
         {
             lastPos = player.position;
-            transform.Translate(0, offset.y, 0);
+            transform.Translate(0f, offset.y*0.1f, 0f);
         }
 	}
 }
