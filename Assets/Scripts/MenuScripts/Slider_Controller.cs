@@ -70,9 +70,9 @@ public class Slider_Controller : MonoBehaviour {
         flagOne = false;
         flagTwo = false;
         flagThree = false;
-        oneQuarter = (Image)GameObject.Find("OneQuarterMarker").GetComponent<Image>();
-        oneHalf = (Image)GameObject.Find("HalfWayMarker").GetComponent<Image>();
-        threeQuarter = (Image)GameObject.Find("ThreeQuartersMarker").GetComponent<Image>();
+        //oneQuarter = (Image)GameObject.Find("OneQuarterMarker").GetComponent<Image>();
+        //oneHalf = (Image)GameObject.Find("HalfWayMarker").GetComponent<Image>();
+        //threeQuarter = (Image)GameObject.Find("ThreeQuartersMarker").GetComponent<Image>();
     }
 
     // Update is called once per frame
