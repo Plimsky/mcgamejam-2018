@@ -73,8 +73,9 @@ public class PlayerController : MonoBehaviour
         anim.SetFloat("Speed", Mathf.Abs(speed));
         anim.SetFloat("VelocityFalling", GetComponent<Rigidbody2D>().velocity.y);
 
+/* 
         if (GetComponent<Rigidbody2D>().velocity.y < 0)
-            jumpable = false;
+            jumpable = false;*/
 
         if (!isDashing)
         {
