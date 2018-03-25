@@ -120799,7 +120799,7 @@ Prefab:
     - target: {fileID: 114565116381033994, guid: 425fa29efebc886418ade4f3d7324b84,
         type: 2}
       propertyPath: progressSpeed
-      value: 5
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 425fa29efebc886418ade4f3d7324b84, type: 2}
@@ -124723,7 +124723,12 @@ Prefab:
     - target: {fileID: 114802441556265850, guid: a082f3556d52bfc489f1ccb3b40c9698,
         type: 2}
       propertyPath: Speed
-      value: 2.5
+      value: 3.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 114802441556265850, guid: a082f3556d52bfc489f1ccb3b40c9698,
+        type: 2}
+      propertyPath: FollowSpeed
+      value: 0.05
       objectReference: {fileID: 0}
     - target: {fileID: 4551269582613596, guid: a082f3556d52bfc489f1ccb3b40c9698, type: 2}
       propertyPath: m_LocalPosition.y
