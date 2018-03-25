@@ -90,7 +90,7 @@ public class Slider_Controller : MonoBehaviour {
 			flagOne = true;
 			StartCoroutine("SpawnCoroutine");
 			//Destroy (oneQuarter.gameObject);
-			abyss.GetComponent<FollowerDeadZone>().Speed = 3.0f;
+			abyss.GetComponent<FollowerDeadZone>().Speed = 3.25f;
 			
 		}
 		else if (slider.value >= .5f && !flagTwo) 
@@ -98,6 +98,7 @@ public class Slider_Controller : MonoBehaviour {
 			flagTwo = true;
 			spawnTeeth();
 			//Destroy (oneHalf.gameObject);
+			abyss.GetComponent<FollowerDeadZone>().Speed = 3.7f;
 		} 
 		else if (slider.value >= .75f && !flagThree) 
 		{
