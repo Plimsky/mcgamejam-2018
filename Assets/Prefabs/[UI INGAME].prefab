@@ -802,11 +802,6 @@ MonoBehaviour:
   - {fileID: 21300036, guid: a5d3c967f88f97044aee84262be44c27, type: 3}
   - {fileID: 21300038, guid: a5d3c967f88f97044aee84262be44c27, type: 3}
   progressSpeed: 10
-  hooks:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
   teethPrefab: {fileID: 1872653699187266, guid: b1adb752ef661f94ba5ff55a1ce8356b,
     type: 2}
   eyePrefab: {fileID: 1031414253961824, guid: 0a6b122238e12c74998eacc5c3ccb67d, type: 2}

@@ -12,7 +12,16 @@ namespace Environment
         {
             if (other.gameObject.CompareTag(TagName))
             {
-                LevelManager.Instance.PlayerDied();
+                Animator anim = other.gameObject.GetComponent<Animator>(); 
+                PlayerController pc = other.gameObject.GetComponent<PlayerController>();
+                if(!pc.isDead) {
+                    anim.SetTrigger("Death");
+                    pc.isDead = true; 
+                }
+                anim.SetBool("DeathBool", true); 
+                
+                //LevelManager.Instance.PlayerDied();
+
             }
         }
     }
