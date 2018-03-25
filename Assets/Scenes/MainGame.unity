@@ -19799,11 +19799,6 @@ MonoBehaviour:
     type: 2}
   m_PrefabInternal: {fileID: 1989915215}
   m_Script: {fileID: 11500000, guid: f22832cef51469d479578281468d4aed, type: 3}
---- !u!4 &386794790 stripped
-Transform:
-  m_PrefabParentObject: {fileID: 4210499669542394, guid: a082f3556d52bfc489f1ccb3b40c9698,
-    type: 2}
-  m_PrefabInternal: {fileID: 1989915215}
 --- !u!114 &390701236 stripped
 MonoBehaviour:
   m_PrefabParentObject: {fileID: 114657363091823936, guid: a082f3556d52bfc489f1ccb3b40c9698,
@@ -37070,11 +37065,6 @@ Transform:
   m_Father: {fileID: 807155973}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!4 &723434650 stripped
-Transform:
-  m_PrefabParentObject: {fileID: 4463764203588232, guid: a082f3556d52bfc489f1ccb3b40c9698,
-    type: 2}
-  m_PrefabInternal: {fileID: 1989915215}
 --- !u!1 &725647661
 GameObject:
   m_ObjectHideFlags: 0
@@ -39747,16 +39737,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!4 &848803725 stripped
-Transform:
-  m_PrefabParentObject: {fileID: 4001823799812700, guid: a082f3556d52bfc489f1ccb3b40c9698,
-    type: 2}
-  m_PrefabInternal: {fileID: 1989915215}
---- !u!4 &872097662 stripped
-Transform:
-  m_PrefabParentObject: {fileID: 4980414652726338, guid: a082f3556d52bfc489f1ccb3b40c9698,
-    type: 2}
-  m_PrefabInternal: {fileID: 1989915215}
 --- !u!1 &910530095
 GameObject:
   m_ObjectHideFlags: 0
@@ -39867,11 +39847,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!4 &951532377 stripped
-Transform:
-  m_PrefabParentObject: {fileID: 4147118685187308, guid: a082f3556d52bfc489f1ccb3b40c9698,
-    type: 2}
-  m_PrefabInternal: {fileID: 1989915215}
 --- !u!1 &952893099
 GameObject:
   m_ObjectHideFlags: 0
@@ -104495,11 +104470,6 @@ Transform:
   m_Father: {fileID: 474039416}
   m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!4 &1413163787 stripped
-Transform:
-  m_PrefabParentObject: {fileID: 4769662136209366, guid: a082f3556d52bfc489f1ccb3b40c9698,
-    type: 2}
-  m_PrefabInternal: {fileID: 1989915215}
 --- !u!1 &1428936693
 GameObject:
   m_ObjectHideFlags: 0
@@ -111859,11 +111829,6 @@ Transform:
   m_Father: {fileID: 474039416}
   m_RootOrder: 17
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!4 &1585884097 stripped
-Transform:
-  m_PrefabParentObject: {fileID: 4840849836058672, guid: a082f3556d52bfc489f1ccb3b40c9698,
-    type: 2}
-  m_PrefabInternal: {fileID: 1989915215}
 --- !u!1 &1615490012
 GameObject:
   m_ObjectHideFlags: 0
@@ -114074,11 +114039,6 @@ Tilemap:
   m_TileRefreshArray:
   - serializedVersion: 1
     m_DirtyIndex: 0
---- !u!4 &1640358972 stripped
-Transform:
-  m_PrefabParentObject: {fileID: 4890403500784342, guid: a082f3556d52bfc489f1ccb3b40c9698,
-    type: 2}
-  m_PrefabInternal: {fileID: 1989915215}
 --- !u!1 &1719606768
 GameObject:
   m_ObjectHideFlags: 0
@@ -118592,55 +118552,15 @@ Prefab:
       propertyPath: hooks.Array.data[3]
       value: 
       objectReference: {fileID: 196693326}
-    - target: {fileID: 114565116381033994, guid: 425fa29efebc886418ade4f3d7324b84,
-        type: 2}
-      propertyPath: teethSpawn.Array.data[0]
-      value: 
-      objectReference: {fileID: 386794790}
-    - target: {fileID: 114565116381033994, guid: 425fa29efebc886418ade4f3d7324b84,
-        type: 2}
-      propertyPath: teethSpawn.Array.data[1]
-      value: 
-      objectReference: {fileID: 951532377}
-    - target: {fileID: 114565116381033994, guid: 425fa29efebc886418ade4f3d7324b84,
-        type: 2}
-      propertyPath: teethSpawn.Array.data[2]
-      value: 
-      objectReference: {fileID: 1585884097}
-    - target: {fileID: 114565116381033994, guid: 425fa29efebc886418ade4f3d7324b84,
-        type: 2}
-      propertyPath: teethSpawn.Array.data[3]
-      value: 
-      objectReference: {fileID: 1640358972}
-    - target: {fileID: 114565116381033994, guid: 425fa29efebc886418ade4f3d7324b84,
-        type: 2}
-      propertyPath: eyeSpawn.Array.data[0]
-      value: 
-      objectReference: {fileID: 723434650}
-    - target: {fileID: 114565116381033994, guid: 425fa29efebc886418ade4f3d7324b84,
-        type: 2}
-      propertyPath: eyeSpawn.Array.data[1]
-      value: 
-      objectReference: {fileID: 1413163787}
-    - target: {fileID: 114565116381033994, guid: 425fa29efebc886418ade4f3d7324b84,
-        type: 2}
-      propertyPath: eyeSpawn.Array.data[2]
-      value: 
-      objectReference: {fileID: 872097662}
-    - target: {fileID: 114565116381033994, guid: 425fa29efebc886418ade4f3d7324b84,
-        type: 2}
-      propertyPath: eyeSpawn.Array.data[3]
-      value: 
-      objectReference: {fileID: 848803725}
     - target: {fileID: 224267426558285520, guid: 425fa29efebc886418ade4f3d7324b84,
         type: 2}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 224826364591745370, guid: 425fa29efebc886418ade4f3d7324b84,
         type: 2}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 425fa29efebc886418ade4f3d7324b84, type: 2}
@@ -123931,6 +123851,54 @@ Prefab:
     - target: {fileID: 4895515027757972, guid: a082f3556d52bfc489f1ccb3b40c9698, type: 2}
       propertyPath: m_LocalPosition.y
       value: 0.13
+      objectReference: {fileID: 0}
+    - target: {fileID: 1036071021663502, guid: a082f3556d52bfc489f1ccb3b40c9698, type: 2}
+      propertyPath: m_TagString
+      value: TeethSpawn
+      objectReference: {fileID: 0}
+    - target: {fileID: 1433347765462420, guid: a082f3556d52bfc489f1ccb3b40c9698, type: 2}
+      propertyPath: m_TagString
+      value: TeethSpawn
+      objectReference: {fileID: 0}
+    - target: {fileID: 1049890139785402, guid: a082f3556d52bfc489f1ccb3b40c9698, type: 2}
+      propertyPath: m_TagString
+      value: TeethSpawn
+      objectReference: {fileID: 0}
+    - target: {fileID: 1148580016225760, guid: a082f3556d52bfc489f1ccb3b40c9698, type: 2}
+      propertyPath: m_TagString
+      value: TeethSpawn
+      objectReference: {fileID: 0}
+    - target: {fileID: 1902889959829512, guid: a082f3556d52bfc489f1ccb3b40c9698, type: 2}
+      propertyPath: m_TagString
+      value: EyeSpawn
+      objectReference: {fileID: 0}
+    - target: {fileID: 1967576275130202, guid: a082f3556d52bfc489f1ccb3b40c9698, type: 2}
+      propertyPath: m_TagString
+      value: EyeSpawn
+      objectReference: {fileID: 0}
+    - target: {fileID: 1323320614743056, guid: a082f3556d52bfc489f1ccb3b40c9698, type: 2}
+      propertyPath: m_TagString
+      value: EyeSpawn
+      objectReference: {fileID: 0}
+    - target: {fileID: 1685849471025844, guid: a082f3556d52bfc489f1ccb3b40c9698, type: 2}
+      propertyPath: m_TagString
+      value: EyeSpawn
+      objectReference: {fileID: 0}
+    - target: {fileID: 1786735610682930, guid: a082f3556d52bfc489f1ccb3b40c9698, type: 2}
+      propertyPath: m_TagString
+      value: Hook
+      objectReference: {fileID: 0}
+    - target: {fileID: 1064876741840816, guid: a082f3556d52bfc489f1ccb3b40c9698, type: 2}
+      propertyPath: m_TagString
+      value: Hook
+      objectReference: {fileID: 0}
+    - target: {fileID: 1218437343934454, guid: a082f3556d52bfc489f1ccb3b40c9698, type: 2}
+      propertyPath: m_TagString
+      value: Hook
+      objectReference: {fileID: 0}
+    - target: {fileID: 1085052960183124, guid: a082f3556d52bfc489f1ccb3b40c9698, type: 2}
+      propertyPath: m_TagString
+      value: Hook
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a082f3556d52bfc489f1ccb3b40c9698, type: 2}

@@ -10,6 +10,9 @@ TagManager:
   - EndMarker
   - Abyss
   - HookSpawn
+  - TeethSpawn
+  - EyeSpawn
+  - Hook
   layers:
   - Default
   - TransparentFX

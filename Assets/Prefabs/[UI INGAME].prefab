@@ -807,16 +807,6 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  teethSpawn:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  eyeSpawn:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
   teethPrefab: {fileID: 1872653699187266, guid: b1adb752ef661f94ba5ff55a1ce8356b,
     type: 2}
   eyePrefab: {fileID: 1031414253961824, guid: 0a6b122238e12c74998eacc5c3ccb67d, type: 2}

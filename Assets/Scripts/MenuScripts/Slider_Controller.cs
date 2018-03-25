@@ -16,9 +16,10 @@ public class Slider_Controller : MonoBehaviour {
 	public Sprite[] frames;
 	public float progressSpeed = 3.5f; 
 
-	public Hook[] hooks;
-	public Transform[] teethSpawn; 
-	public Transform[] eyeSpawn;
+	private GameObject[] hooks;
+	private GameObject[] teethSpawn; 
+	private GameObject[] eyeSpawn;
+
 	public GameObject teethPrefab; 
 	public GameObject eyePrefab; 
 
@@ -37,6 +38,10 @@ public class Slider_Controller : MonoBehaviour {
 	    endPos = GameObject.FindGameObjectWithTag ("EndMarker").transform;
 
 		abyss = GameObject.FindGameObjectWithTag ("Abyss").transform;
+
+		teethSpawn = GameObject.FindGameObjectsWithTag("TeethSpawn"); 
+		eyeSpawn = GameObject.FindGameObjectsWithTag("EyeSpawn"); 
+		hooks = GameObject.FindGameObjectsWithTag("Hook"); 
 		
 
 		flagOne = false; 
@@ -55,6 +60,13 @@ public class Slider_Controller : MonoBehaviour {
         startPos = player.position;
         endPos = GameObject.FindGameObjectWithTag("EndMarker").transform;
         abyss = GameObject.FindGameObjectWithTag("Abyss").transform;
+
+		teethSpawn = GameObject.FindGameObjectsWithTag("TeethSpawn"); 
+		eyeSpawn = GameObject.FindGameObjectsWithTag("EyeSpawn"); 
+		hooks = GameObject.FindGameObjectsWithTag("Hook"); 
+
+		StopAllCoroutines();
+		
         flagOne = false;
         flagTwo = false;
         flagThree = false;
@@ -94,16 +106,16 @@ public class Slider_Controller : MonoBehaviour {
 	}
 
 	void spawnTeeth() {
-		foreach(Transform spawn in teethSpawn) {
-			var tooth = Object.Instantiate(teethPrefab, spawn.position, spawn.rotation); 
-			tooth.transform.parent = spawn.parent; 
+		foreach(GameObject spawn in teethSpawn) {
+			var tooth = Object.Instantiate(teethPrefab, spawn.transform.position, spawn.transform.rotation); 
+			tooth.transform.parent = spawn.transform.parent; 
 		}
 	}
 
 	void spawnEyes() {
-		foreach(Transform spawn in eyeSpawn) {
-			var eye = Object.Instantiate(eyePrefab, spawn.position, spawn.rotation); 
-			eye.transform.parent = spawn.parent; 
+		foreach(GameObject spawn in eyeSpawn) {
+			var eye = Object.Instantiate(eyePrefab, spawn.transform.position, spawn.transform.rotation); 
+			eye.transform.parent = spawn.transform.parent; 
 		}
 	}
 
