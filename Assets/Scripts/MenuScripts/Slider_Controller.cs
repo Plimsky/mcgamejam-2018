@@ -18,7 +18,9 @@ public class Slider_Controller : MonoBehaviour {
 
 	public Hook[] hooks;
 	public Transform[] teethSpawn; 
+	public Transform[] eyeSpawn;
 	public GameObject teethPrefab; 
+	public GameObject eyePrefab; 
 
 	//private float timeToStrike; 
 	//private float strikeRate = 4.0f; 
@@ -86,6 +88,7 @@ public class Slider_Controller : MonoBehaviour {
 		else if (slider.value >= .75f && !flagThree) 
 		{
 			flagThree = true;
+			spawnEyes(); 
 			//Destroy (threeQuarter.gameObject);
 		}
 	}
@@ -94,6 +97,13 @@ public class Slider_Controller : MonoBehaviour {
 		foreach(Transform spawn in teethSpawn) {
 			var tooth = Object.Instantiate(teethPrefab, spawn.position, spawn.rotation); 
 			tooth.transform.parent = spawn.parent; 
+		}
+	}
+
+	void spawnEyes() {
+		foreach(Transform spawn in eyeSpawn) {
+			var eye = Object.Instantiate(eyePrefab, spawn.position, spawn.rotation); 
+			eye.transform.parent = spawn.parent; 
 		}
 	}
 
