@@ -10273,11 +10273,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4718658965671278, guid: 0721103b7891f9c4497bf2669e1c1182, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 187.7
+      value: -23.93
       objectReference: {fileID: 0}
     - target: {fileID: 4718658965671278, guid: 0721103b7891f9c4497bf2669e1c1182, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -9.6
+      value: -1
       objectReference: {fileID: 0}
     - target: {fileID: 4718658965671278, guid: 0721103b7891f9c4497bf2669e1c1182, type: 2}
       propertyPath: m_LocalPosition.z
@@ -93201,7 +93201,7 @@ GameObject:
   - component: {fileID: 1285756685}
   - component: {fileID: 1285756684}
   - component: {fileID: 1285756683}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Tilemap_HazardObstacles
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -114090,7 +114090,7 @@ GameObject:
   - component: {fileID: 1615490016}
   - component: {fileID: 1615490015}
   - component: {fileID: 1615490014}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Tilemap_Hazards
   m_TagString: Untagged
   m_Icon: {fileID: 0}
