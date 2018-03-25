@@ -23480,7 +23480,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 80a6645944ab21747b3e26c66e835771, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TimeToWaitBeforeReloadLevel: 2
+  TimeToWaitBeforeReloadLevel: 0
 --- !u!4 &484220177
 Transform:
   m_ObjectHideFlags: 0
