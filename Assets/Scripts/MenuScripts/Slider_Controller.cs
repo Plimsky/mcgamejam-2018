@@ -30,6 +30,7 @@ public class Slider_Controller : MonoBehaviour {
 
 	private bool flagOne, flagTwo, flagThree;
 	private Image oneQuarter, oneHalf, threeQuarter;
+
 	void Start() 
 	{
 		slider = transform.GetComponentInChildren<Slider> ();
@@ -54,22 +55,23 @@ public class Slider_Controller : MonoBehaviour {
 
     void OnLevelWasLoaded()
     {
-        Debug.Log("Level has loaded");
-        slider = transform.GetComponentInChildren<Slider>();
-        player = GameObject.FindGameObjectWithTag("Player").transform;
-        startPos = player.position;
-        endPos = GameObject.FindGameObjectWithTag("EndMarker").transform;
-        abyss = GameObject.FindGameObjectWithTag("Abyss").transform;
+			Debug.Log("Level has loaded");
+			slider = transform.GetComponentInChildren<Slider>();
+			player = GameObject.FindGameObjectWithTag("Player").transform;
+			startPos = player.position;
+			endPos = GameObject.FindGameObjectWithTag("EndMarker").transform;
+			abyss = GameObject.FindGameObjectWithTag("Abyss").transform;
 
-		teethSpawn = GameObject.FindGameObjectsWithTag("TeethSpawn"); 
-		eyeSpawn = GameObject.FindGameObjectsWithTag("EyeSpawn"); 
-		hooks = GameObject.FindGameObjectsWithTag("Hook"); 
+			teethSpawn = GameObject.FindGameObjectsWithTag("TeethSpawn"); 
+			eyeSpawn = GameObject.FindGameObjectsWithTag("EyeSpawn"); 
+			hooks = GameObject.FindGameObjectsWithTag("Hook"); 
 
-		StopAllCoroutines();
-		
-        flagOne = false;
-        flagTwo = false;
-        flagThree = false;
+			StopAllCoroutines();
+			
+			flagOne = false;
+			flagTwo = false;
+			flagThree = false;
+
         //oneQuarter = (Image)GameObject.Find("OneQuarterMarker").GetComponent<Image>();
         //oneHalf = (Image)GameObject.Find("HalfWayMarker").GetComponent<Image>();
         //threeQuarter = (Image)GameObject.Find("ThreeQuartersMarker").GetComponent<Image>();

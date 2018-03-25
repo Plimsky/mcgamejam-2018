@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -8,6 +9,7 @@ public class PlayerController : MonoBehaviour
     [HideInInspector] public bool dash = false;
 
     private bool isDashing = false;
+    public bool isDead = false; 
 
     public float speed = 2f;
     public float dashSpeed = 4f;
@@ -131,6 +133,10 @@ public class PlayerController : MonoBehaviour
     {
         yield return new WaitForSeconds(WaitTimeToReDash);
         isDashing = false;
+    }
+
+    void playerDies() {
+        LevelManager.Instance.PlayerDied();
     }
 
 }
