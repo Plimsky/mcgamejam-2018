@@ -358,6 +358,21 @@ Prefab:
       propertyPath: levelName
       value: Assets/Scenes/Tests/Animations/TestEnemiesAnimations.unity
       objectReference: {fileID: 0}
+    - target: {fileID: 114161274013187844, guid: 6a73dd8cb85948340adecfcabce8b090,
+        type: 2}
+      propertyPath: m_Color.r
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114161274013187844, guid: 6a73dd8cb85948340adecfcabce8b090,
+        type: 2}
+      propertyPath: m_Color.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114161274013187844, guid: 6a73dd8cb85948340adecfcabce8b090,
+        type: 2}
+      propertyPath: m_Color.b
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 6a73dd8cb85948340adecfcabce8b090, type: 2}
   m_IsPrefabParent: 0
