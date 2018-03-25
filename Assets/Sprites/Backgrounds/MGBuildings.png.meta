@@ -3,7 +3,11 @@ guid: 9948cad7e42e0054f8bb7c4e646acc7f
 timeCreated: 1521929228
 licenseType: Free
 TextureImporter:
-  fileIDToRecycleName: {}
+  fileIDToRecycleName:
+    21300000: MGBuildings_0
+    21300002: MGBuildings_1
+    21300004: MGBuildings_2
+    21300006: MGBuildings_3
   externalObjects: {}
   serializedVersion: 4
   mipmaps:
@@ -31,7 +35,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: -1
+    filterMode: 0
     aniso: -1
     mipBias: -1
     wrapU: 1
@@ -88,7 +92,63 @@ TextureImporter:
     androidETC2FallbackOverride: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: MGBuildings_0
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 0
+        width: 253
+        height: 255
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: MGBuildings_1
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 0
+        width: 197
+        height: 286
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: MGBuildings_2
+      rect:
+        serializedVersion: 2
+        x: 461
+        y: 0
+        width: 72
+        height: 279
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: MGBuildings_3
+      rect:
+        serializedVersion: 2
+        x: 564
+        y: 0
+        width: 74
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
     outline: []
     physicsShape: []
   spritePackingTag: 

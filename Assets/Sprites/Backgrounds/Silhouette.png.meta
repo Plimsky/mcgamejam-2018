@@ -3,7 +3,12 @@ guid: 441fbdf33b099564896fbc6c36d97554
 timeCreated: 1521929228
 licenseType: Free
 TextureImporter:
-  fileIDToRecycleName: {}
+  fileIDToRecycleName:
+    21300000: Silhouette_0
+    21300002: Silhouette_1
+    21300004: Silhouette_2
+    21300006: Silhouette_3
+    21300008: Silhouette_4
   externalObjects: {}
   serializedVersion: 4
   mipmaps:
@@ -31,7 +36,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: -1
+    filterMode: 0
     aniso: -1
     mipBias: -1
     wrapU: 1
@@ -88,7 +93,77 @@ TextureImporter:
     androidETC2FallbackOverride: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: Silhouette_0
+      rect:
+        serializedVersion: 2
+        x: 10
+        y: 85
+        width: 141
+        height: 98
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Silhouette_1
+      rect:
+        serializedVersion: 2
+        x: 164
+        y: 86
+        width: 239
+        height: 132
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Silhouette_2
+      rect:
+        serializedVersion: 2
+        x: 419
+        y: 40
+        width: 278
+        height: 246
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Silhouette_3
+      rect:
+        serializedVersion: 2
+        x: 708
+        y: 48
+        width: 268
+        height: 187
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Silhouette_4
+      rect:
+        serializedVersion: 2
+        x: 992
+        y: 11
+        width: 376
+        height: 275
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
     outline: []
     physicsShape: []
   spritePackingTag: 
