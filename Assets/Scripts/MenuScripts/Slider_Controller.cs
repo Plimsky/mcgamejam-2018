@@ -14,9 +14,12 @@ public class Slider_Controller : MonoBehaviour {
 	public Transform endPos;
 	public Image relevant;
 	public Sprite[] frames;
-
+	public float progressSpeed = 3.5f; 
 
 	public Hook[] hooks;
+	public Transform[] teethSpawn; 
+	public GameObject teethPrefab; 
+
 	//private float timeToStrike; 
 	//private float strikeRate = 4.0f; 
 
@@ -63,7 +66,7 @@ public class Slider_Controller : MonoBehaviour {
 	{
 		
 		relevant.sprite = frames [(int)(Time.time * fps) % frames.Length];
-		slider.value = (player.position.x - startPos.x) / (endPos.position.x - startPos.x) * 3.5f;
+		slider.value = (player.position.x - startPos.x) / (endPos.position.x - startPos.x) * progressSpeed;
 	   
 
 		if (slider.value >= .25f && !flagOne) 
@@ -77,6 +80,7 @@ public class Slider_Controller : MonoBehaviour {
 		else if (slider.value >= .5f && !flagTwo) 
 		{
 			flagTwo = true;
+			spawnTeeth();
 			//Destroy (oneHalf.gameObject);
 		} 
 		else if (slider.value >= .75f && !flagThree) 
@@ -86,16 +90,27 @@ public class Slider_Controller : MonoBehaviour {
 		}
 	}
 
+	void spawnTeeth() {
+		foreach(Transform spawn in teethSpawn) {
+			var tooth = Object.Instantiate(teethPrefab, spawn.position, spawn.rotation); 
+			tooth.transform.parent = spawn.parent; 
+		}
+	}
+
 	IEnumerator SpawnCoroutine() {
 		float waitTime = 0.35f;
-		float betweenLoops = 1f;  
+		float betweenLoops = 0.75f;  
 		while (true) {
 			for (int i = 0; i < 4; i++) {
 				Animator anim;
 				anim = hooks[i].transform.GetComponent<Animator>();
 				Vector2 newPos = new Vector2 (hooks[i].transform.position.x, player.position.y); 
+				Transform hookTransform = hooks[i].transform; 
+			
+				hookTransform.rotation =  Quaternion.Euler(0, 0, Random.Range(-10f, 10f)); 
 				newPos.y = newPos.y + Random.Range(-0.5f, 0.5f); 
-				newPos.x = newPos.x += Random.Range(0.0f, 2.0f); 
+				newPos.x = newPos.x += Random.Range(0.0f, 1.5f); 
+				
 				hooks[i].transform.position = newPos; 
 				anim.SetTrigger("pierceTrigger"); 
 				yield return new WaitForSeconds(waitTime); 
