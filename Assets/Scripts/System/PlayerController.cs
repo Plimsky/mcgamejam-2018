@@ -91,6 +91,8 @@ public class PlayerController : MonoBehaviour
 
         if (dash && !isDashing)
         {
+            source.Pause();
+            source.PlayOneShot(dashNoise2);
             StartCoroutine(Dash(DashTime));
         }
 
@@ -108,6 +110,7 @@ public class PlayerController : MonoBehaviour
             Instantiate(ParticleToSpawnOnJump, SpawnTransform.position, Quaternion.identity);
             Instantiate(SpriteJumpSmoke, SpawnTransform.position, Quaternion.identity);
             anim.SetTrigger("Jump");
+            source.Pause();
             source.PlayOneShot(jumpNoise);
             rb.AddForce(new Vector2(0f, jumpForce));
             jump = false;
@@ -123,7 +126,6 @@ public class PlayerController : MonoBehaviour
         while (dashDur > time)
         {
             time += Time.deltaTime;
-            source.PlayOneShot(dashNoise2);
             rb.velocity = new Vector2(dashSpeed, 0);
             yield return null;
         }
