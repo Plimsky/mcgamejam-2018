@@ -21,12 +21,17 @@ public class Slider_Controller : MonoBehaviour {
 	private GameObject[] eyeSpawn;
 
 	public GameObject teethPrefab; 
-	public GameObject eyePrefab; 
+	public GameObject eyePrefab;
+    public AudioClip roarNoise1;
+    public AudioClip roarNoise2;
+    public AudioClip roarNoise3;
+    public AudioSource source;
 
-	//private float timeToStrike; 
-	//private float strikeRate = 4.0f; 
 
-	public Color claimedColour;
+    //private float timeToStrike; 
+    //private float strikeRate = 4.0f; 
+
+    public Color claimedColour;
 
 	private bool flagOne, flagTwo, flagThree;
 	private Image oneQuarter, oneHalf, threeQuarter;
@@ -91,7 +96,7 @@ public class Slider_Controller : MonoBehaviour {
 			StartCoroutine("SpawnCoroutine");
 			//Destroy (oneQuarter.gameObject);
 			abyss.GetComponent<FollowerDeadZone>().Speed = 3.25f;
-			
+            source.PlayOneShot(roarNoise1,0.25f);
 		}
 		else if (slider.value >= .5f && !flagTwo) 
 		{
@@ -99,13 +104,15 @@ public class Slider_Controller : MonoBehaviour {
 			spawnTeeth();
 			//Destroy (oneHalf.gameObject);
 			abyss.GetComponent<FollowerDeadZone>().Speed = 3.7f;
-		} 
+            source.PlayOneShot(roarNoise2, 0.5f);
+        } 
 		else if (slider.value >= .75f && !flagThree) 
 		{
 			flagThree = true;
-			spawnEyes(); 
-			//Destroy (threeQuarter.gameObject);
-		}
+			spawnEyes();
+            //Destroy (threeQuarter.gameObject);
+            source.PlayOneShot(roarNoise3, 0.75f);
+        }
 	}
 
 	void spawnTeeth() {

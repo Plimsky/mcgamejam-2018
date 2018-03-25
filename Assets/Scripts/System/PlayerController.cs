@@ -25,17 +25,22 @@ public class PlayerController : MonoBehaviour
     public GameObject SpriteJumpSmoke;
     public GameObject ParticleToSpawnOnJump;
     public Transform SpawnTransform;
+    public AudioClip jumpNoise;
+    public AudioClip dashNoise2;
+    //public AudioClip walkNoise;
 
     private bool grounded = false;
     private bool jumpable;
     private bool slowDownDash = false;
     private Animator anim;
     private Rigidbody2D rb;
+    private AudioSource source;
 
     void Awake()
     {
         anim = GetComponent<Animator>();
         rb = GetComponent<Rigidbody2D>();
+        source = GetComponent<AudioSource>();
         jumpable = true;
     }
 
@@ -103,6 +108,7 @@ public class PlayerController : MonoBehaviour
             Instantiate(ParticleToSpawnOnJump, SpawnTransform.position, Quaternion.identity);
             Instantiate(SpriteJumpSmoke, SpawnTransform.position, Quaternion.identity);
             anim.SetTrigger("Jump");
+            source.PlayOneShot(jumpNoise);
             rb.AddForce(new Vector2(0f, jumpForce));
             jump = false;
             jumpable = false;
@@ -117,6 +123,7 @@ public class PlayerController : MonoBehaviour
         while (dashDur > time)
         {
             time += Time.deltaTime;
+            source.PlayOneShot(dashNoise2);
             rb.velocity = new Vector2(dashSpeed, 0);
             yield return null;
         }
