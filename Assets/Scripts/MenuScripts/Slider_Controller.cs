@@ -24,7 +24,7 @@ public class Slider_Controller : MonoBehaviour {
 
 	private bool flagOne, flagTwo, flagThree;
 	private Image oneQuarter, oneHalf, threeQuarter;
-	void Start () 
+	void Start() 
 	{
 		slider = transform.GetComponentInChildren<Slider> ();
 		player = GameObject.FindGameObjectWithTag ("Player").transform;
@@ -41,9 +41,25 @@ public class Slider_Controller : MonoBehaviour {
 		oneHalf = (Image)GameObject.Find ("HalfWayMarker").GetComponent<Image>();
 		threeQuarter = (Image)GameObject.Find ("ThreeQuartersMarker").GetComponent<Image>();
 	}
-	
-	// Update is called once per frame
-	void Update () 
+
+    void OnLevelWasLoaded()
+    {
+        Debug.Log("Level has loaded");
+        slider = transform.GetComponentInChildren<Slider>();
+        player = GameObject.FindGameObjectWithTag("Player").transform;
+        startPos = player.position;
+        endPos = GameObject.FindGameObjectWithTag("EndMarker").transform;
+        abyss = GameObject.FindGameObjectWithTag("Abyss").transform;
+        flagOne = false;
+        flagTwo = false;
+        flagThree = false;
+        oneQuarter = (Image)GameObject.Find("OneQuarterMarker").GetComponent<Image>();
+        oneHalf = (Image)GameObject.Find("HalfWayMarker").GetComponent<Image>();
+        threeQuarter = (Image)GameObject.Find("ThreeQuartersMarker").GetComponent<Image>();
+    }
+
+    // Update is called once per frame
+    void Update () 
 	{
 		
 		relevant.sprite = frames [(int)(Time.time * fps) % frames.Length];
@@ -54,19 +70,19 @@ public class Slider_Controller : MonoBehaviour {
 		{
 			flagOne = true;
 			StartCoroutine("SpawnCoroutine");
-			Destroy (oneQuarter.gameObject);
+			//Destroy (oneQuarter.gameObject);
 			abyss.GetComponent<FollowerDeadZone>().Speed = 3.0f;
 			
 		}
 		else if (slider.value >= .5f && !flagTwo) 
 		{
 			flagTwo = true;
-			Destroy (oneHalf.gameObject);
+			//Destroy (oneHalf.gameObject);
 		} 
 		else if (slider.value >= .75f && !flagThree) 
 		{
 			flagThree = true;
-			Destroy (threeQuarter.gameObject);
+			//Destroy (threeQuarter.gameObject);
 		}
 	}
 
