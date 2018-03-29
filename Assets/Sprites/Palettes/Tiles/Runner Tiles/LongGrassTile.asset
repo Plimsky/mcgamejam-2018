@@ -20,7 +20,7 @@ MonoBehaviour:
     - {fileID: 21300366, guid: 7ef6e0bdb97d28749805645d7b6fb85f, type: 3}
     - {fileID: 21300368, guid: 7ef6e0bdb97d28749805645d7b6fb85f, type: 3}
     m_AnimationSpeed: 1
-    m_PerlinScale: 0.628
+    m_PerlinScale: 0.752
     m_RuleTransform: 0
     m_Output: 1
     m_ColliderType: 1
@@ -31,7 +31,7 @@ MonoBehaviour:
     - {fileID: 21300386, guid: d3fe3c6f86b9f62488edb66fbfa7a4e8, type: 3}
     - {fileID: 21300388, guid: d3fe3c6f86b9f62488edb66fbfa7a4e8, type: 3}
     m_AnimationSpeed: 1
-    m_PerlinScale: 0.5
+    m_PerlinScale: 0.239
     m_RuleTransform: 0
     m_Output: 1
     m_ColliderType: 1
