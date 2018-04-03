@@ -1,17 +1,20 @@
 fileFormatVersion: 2
-guid: 6479968a1dbd3fd419091a631f0ed44d
-timeCreated: 1521877233
+guid: b1aaf0b788393264cab012f0ac8264fb
+timeCreated: 1522738686
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
-    21300000: Nebulus_Void_Eyes_0
-    21300002: Nebulus_Void_Eyes_1
-    21300004: Nebulus_Void_Eyes_2
-    21300006: Nebulus_Void_Eyes_3
-    21300008: Nebulus_Void_Eyes_4
-    21300010: Nebulus_Void_Eyes_5
-    21300012: Nebulus_Void_Eyes_6
-    21300014: Nebulus_Void_Eyes_7
+    21300000: Nebulus Void (EyesATTACK)_0
+    21300002: Nebulus Void (EyesATTACK)_1
+    21300004: Nebulus Void (EyesATTACK)_2
+    21300006: Nebulus Void (EyesATTACK)_3
+    21300008: Nebulus Void (EyesATTACK)_4
+    21300010: Nebulus Void (EyesATTACK)_5
+    21300012: Nebulus Void (EyesATTACK)_6
+    21300014: Nebulus Void (EyesATTACK)_7
+    21300016: Nebulus Void (EyesATTACK)_8
+    21300018: Nebulus Void (EyesATTACK)_9
+    21300020: Nebulus Void (EyesATTACK)_10
   externalObjects: {}
   serializedVersion: 4
   mipmaps:
@@ -68,7 +71,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -78,7 +81,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -88,7 +91,35 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Nebulus_Void_Eyes_0
+      name: Nebulus Void (EyesATTACK)_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 900
+        width: 150
+        height: 100
+      alignment: 4
+      pivot: {x: 0, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Nebulus Void (EyesATTACK)_1
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 800
+        width: 150
+        height: 100
+      alignment: 4
+      pivot: {x: 0, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Nebulus Void (EyesATTACK)_2
       rect:
         serializedVersion: 2
         x: 0
@@ -102,7 +133,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Nebulus_Void_Eyes_1
+      name: Nebulus Void (EyesATTACK)_3
       rect:
         serializedVersion: 2
         x: 0
@@ -116,7 +147,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Nebulus_Void_Eyes_2
+      name: Nebulus Void (EyesATTACK)_4
       rect:
         serializedVersion: 2
         x: 0
@@ -130,7 +161,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Nebulus_Void_Eyes_3
+      name: Nebulus Void (EyesATTACK)_5
       rect:
         serializedVersion: 2
         x: 0
@@ -144,12 +175,12 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Nebulus_Void_Eyes_4
+      name: Nebulus Void (EyesATTACK)_6
       rect:
         serializedVersion: 2
         x: 0
         y: 300
-        width: 150
+        width: 200
         height: 100
       alignment: 4
       pivot: {x: 0, y: 0.5}
@@ -158,7 +189,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Nebulus_Void_Eyes_5
+      name: Nebulus Void (EyesATTACK)_7
       rect:
         serializedVersion: 2
         x: 0
@@ -172,7 +203,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Nebulus_Void_Eyes_6
+      name: Nebulus Void (EyesATTACK)_8
       rect:
         serializedVersion: 2
         x: 0
@@ -186,7 +217,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Nebulus_Void_Eyes_7
+      name: Nebulus Void (EyesATTACK)_9
       rect:
         serializedVersion: 2
         x: 0
@@ -195,6 +226,20 @@ TextureImporter:
         height: 100
       alignment: 4
       pivot: {x: 0, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Nebulus Void (EyesATTACK)_10
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 200
+        height: 996
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
