@@ -16,9 +16,12 @@ public class Slider_Controller : MonoBehaviour {
 	public Sprite[] frames;
 	public float progressSpeed = 3.5f; 
 
+	
+	private EnemyFollower enemyFollower;
 	private GameObject[] hooks;
 	private GameObject[] teethSpawn; 
 	private GameObject[] eyeSpawn;
+	private GameObject eyes;
 
 	public GameObject teethPrefab; 
 	public GameObject eyePrefab;
@@ -38,6 +41,10 @@ public class Slider_Controller : MonoBehaviour {
 
 	void Start() 
 	{
+		
+		enemyFollower = GameObject.FindObjectOfType<EnemyFollower>();
+		eyes = GameObject.Find("Eyes");
+
 		slider = transform.GetComponentInChildren<Slider> ();
 		player = GameObject.FindGameObjectWithTag ("Player").transform;
 		startPos = player.position;
@@ -46,7 +53,7 @@ public class Slider_Controller : MonoBehaviour {
 		abyss = GameObject.FindGameObjectWithTag ("Abyss").transform;
 
 		teethSpawn = GameObject.FindGameObjectsWithTag("TeethSpawn"); 
-		eyeSpawn = GameObject.FindGameObjectsWithTag("EyeSpawn"); 
+		//eyeSpawn = GameObject.FindGameObjectsWithTag("EyeSpawn"); 
 		hooks = GameObject.FindGameObjectsWithTag("Hook"); 
 		
 		flagOne = false; 
@@ -55,10 +62,15 @@ public class Slider_Controller : MonoBehaviour {
 		oneQuarter = (Image)GameObject.Find ("OneQuarterMarker").GetComponent<Image>();
 		oneHalf = (Image)GameObject.Find ("HalfWayMarker").GetComponent<Image>();
 		threeQuarter = (Image)GameObject.Find ("ThreeQuartersMarker").GetComponent<Image>();
+
+		StartCoroutine("SpawnEye");
 	}
 
     void OnLevelWasLoaded()
     {
+			enemyFollower = GameObject.FindObjectOfType<EnemyFollower>();
+			eyes = GameObject.Find("Eyes");
+
 			Debug.Log("Level has loaded");
 			slider = transform.GetComponentInChildren<Slider>();
 			player = GameObject.FindGameObjectWithTag("Player").transform;
@@ -67,7 +79,7 @@ public class Slider_Controller : MonoBehaviour {
 			abyss = GameObject.FindGameObjectWithTag("Abyss").transform;
 
 			teethSpawn = GameObject.FindGameObjectsWithTag("TeethSpawn"); 
-			eyeSpawn = GameObject.FindGameObjectsWithTag("EyeSpawn"); 
+			//eyeSpawn = GameObject.FindGameObjectsWithTag("EyeSpawn"); 
 			hooks = GameObject.FindGameObjectsWithTag("Hook"); 
 
 			StopAllCoroutines();
@@ -76,6 +88,7 @@ public class Slider_Controller : MonoBehaviour {
 			flagTwo = false;
 			flagThree = false;
 
+			StartCoroutine("SpawnEye");
         //oneQuarter = (Image)GameObject.Find("OneQuarterMarker").GetComponent<Image>();
         //oneHalf = (Image)GameObject.Find("HalfWayMarker").GetComponent<Image>();
         //threeQuarter = (Image)GameObject.Find("ThreeQuartersMarker").GetComponent<Image>();
@@ -111,7 +124,7 @@ public class Slider_Controller : MonoBehaviour {
 		else if (slider.value >= .75f && !flagThree) 
 		{
 			flagThree = true;
-			spawnEyes();
+			//spawnEyes();
             //Destroy (threeQuarter.gameObject);
             source.PlayOneShot(roarNoise3, 0.75f);
         }
@@ -125,10 +138,24 @@ public class Slider_Controller : MonoBehaviour {
 		}
 	}
 
+/* 
 	void spawnEyes() {
 		foreach(GameObject spawn in eyeSpawn) {
 			var eye = Object.Instantiate(eyePrefab, spawn.transform.position, spawn.transform.rotation); 
 			eye.transform.parent = spawn.transform.parent; 
+		}
+	} */
+
+	IEnumerator SpawnEye() {
+		float timeToSpawn = 10.0f;
+		while (true) {
+			yield return new WaitForSeconds(timeToSpawn);
+			var enemyFollowerBounds = enemyFollower.GetComponent<BoxCollider2D>().bounds;
+			float spawnEyeX = enemyFollowerBounds.center.x + 2.0f;
+			float spawnEyeY = Random.Range(enemyFollowerBounds.min.y, enemyFollowerBounds.max.y);
+			Vector2 spawnEyePosition = new Vector2(spawnEyeX, spawnEyeY);
+			var eye = Object.Instantiate(eyePrefab, spawnEyePosition, eyePrefab.transform.rotation);
+			eye.transform.parent = eyes.transform;
 		}
 	}
 	IEnumerator SpeedBite() {
