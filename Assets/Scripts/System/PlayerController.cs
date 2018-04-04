@@ -54,7 +54,8 @@ public class PlayerController : MonoBehaviour
         if (groundedLastFrame != grounded && grounded)
             StartCoroutine(WaitBeforeJumpable());
 
-        if (grounded && anim.GetCurrentAnimatorStateInfo(0).IsName("PlayerFalling"))
+        //if (grounded && anim.GetCurrentAnimatorStateInfo(0).IsName("PlayerFalling"))
+        if(grounded)
         {
             anim.SetTrigger("TouchGround");
         } else  {
