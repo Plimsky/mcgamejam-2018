@@ -37,7 +37,13 @@ namespace System
             {
                 Destroy(gameObject);
             }
+            
+            
+            
+        }
 
+        void Start() {
+            Debug.Log(UiInGameManager.Instance); 
             OnLevelStart += SetupLevel;
             OnLevelStart += UiInGameManager.Instance.StartLevel;
             OnLevelEnd += ClearLevel;
