@@ -378,6 +378,8 @@ MonoBehaviour:
   dashNoise2: {fileID: 8300000, guid: e89492afa19cd2641ade8781e963fbee, type: 3}
   ghostSprite: {fileID: 1164628338618286, guid: 603d100e04205a440a458c473353d4eb,
     type: 2}
+  ghostAirRate: 0.08
+  ghostDashRate: 0.01
 --- !u!212 &212520737155671464
 SpriteRenderer:
   m_ObjectHideFlags: 1

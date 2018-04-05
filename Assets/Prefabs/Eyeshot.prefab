@@ -70,6 +70,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 8
+  ghostPrefab: {fileID: 114060037089964498, guid: 1021e561a946d4a49b3351c87c4c9254,
+    type: 2}
 --- !u!114 &114940011759668404
 MonoBehaviour:
   m_ObjectHideFlags: 1
