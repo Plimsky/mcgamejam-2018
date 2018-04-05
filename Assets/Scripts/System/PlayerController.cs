@@ -27,6 +27,12 @@ public class PlayerController : MonoBehaviour
     public Transform SpawnTransform;
     public AudioClip jumpNoise;
     public AudioClip dashNoise2;
+
+    public GameObject ghostSprite;
+    IEnumerator ghostCoroutineAir; 
+    public float ghostAirRate = 0.05f; 
+    public float ghostDashRate = 0.01f; 
+
     //public AudioClip walkNoise;
 
     private bool grounded = false;
@@ -36,16 +42,21 @@ public class PlayerController : MonoBehaviour
     private Rigidbody2D rb;
     private AudioSource source;
 
+  
+
     void Awake()
     {
         anim = GetComponent<Animator>();
         rb = GetComponent<Rigidbody2D>();
         source = GetComponent<AudioSource>();
         jumpable = true;
+ 
+        ghostCoroutineAir = SpawnGhost(ghostAirRate); 
     }
 
     void Update()
     {
+        
         bool groundedLastFrame = grounded;
         grounded = (Physics2D.Raycast(transform.position, Vector2.down, 1.0f, groundLayer).collider != null)
             ? true
@@ -53,6 +64,15 @@ public class PlayerController : MonoBehaviour
 
         if (groundedLastFrame != grounded && grounded)
             StartCoroutine(WaitBeforeJumpable());
+
+        if (groundedLastFrame && !grounded) {
+            StartCoroutine(ghostCoroutineAir); 
+        }
+
+        if (!groundedLastFrame && grounded) {
+              Debug.Log("GC2 stopped"); 
+              StopCoroutine(ghostCoroutineAir); 
+        }
 
         //if (grounded && anim.GetCurrentAnimatorStateInfo(0).IsName("PlayerFalling"))
         if(grounded)
@@ -124,13 +144,17 @@ public class PlayerController : MonoBehaviour
         float time = 0;
         isDashing = true;
 
+        IEnumerator ghostCoroutine = SpawnGhost(ghostDashRate);
+        StartCoroutine(ghostCoroutine); 
         while (dashDur > time)
         {
             time += Time.deltaTime;
             rb.velocity = new Vector2(dashSpeed, 0);
+            //GameObject ghost = Instantiate(ghostSprite, transform.position, transform.rotation); 
             yield return null;
         }
         StartCoroutine(WaitBeforeDash());
+        StopCoroutine(ghostCoroutine); 
         slowDownDash = true;
     }
 
@@ -147,8 +171,17 @@ public class PlayerController : MonoBehaviour
         dash = false;
     }
 
+    private IEnumerator SpawnGhost(float spawnDelay)  
+    {
+        while (true) {
+            GameObject ghost = Instantiate(ghostSprite, transform.position, transform.rotation); 
+            yield return new WaitForSeconds(spawnDelay); 
+        }
+    }
+
     void playerDies() {
         LevelManager.Instance.PlayerDied();
     }
+
 
 }
