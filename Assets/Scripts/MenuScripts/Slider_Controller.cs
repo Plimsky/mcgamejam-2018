@@ -122,7 +122,7 @@ public class Slider_Controller : MonoBehaviour {
 		else if (slider.value >= .75f && !flagThree) 
 		{
 			StartCoroutine("SpawnEye");
-			abyss.GetComponent<FollowerDeadZone>().Speed = 6.00f;
+			abyss.GetComponent<FollowerDeadZone>().Speed = 6.25f;
 			flagThree = true;
 			//spawnEyes();
             //Destroy (threeQuarter.gameObject);
