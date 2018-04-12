@@ -62,8 +62,6 @@ public class Slider_Controller : MonoBehaviour {
 		oneQuarter = (Image)GameObject.Find ("OneQuarterMarker").GetComponent<Image>();
 		oneHalf = (Image)GameObject.Find ("HalfWayMarker").GetComponent<Image>();
 		threeQuarter = (Image)GameObject.Find ("ThreeQuartersMarker").GetComponent<Image>();
-
-		StartCoroutine("SpawnEye");
 	}
 
     void OnLevelWasLoaded()
@@ -88,7 +86,7 @@ public class Slider_Controller : MonoBehaviour {
 			flagTwo = false;
 			flagThree = false;
 
-			StartCoroutine("SpawnEye");
+			
         //oneQuarter = (Image)GameObject.Find("OneQuarterMarker").GetComponent<Image>();
         //oneHalf = (Image)GameObject.Find("HalfWayMarker").GetComponent<Image>();
         //threeQuarter = (Image)GameObject.Find("ThreeQuartersMarker").GetComponent<Image>();
@@ -99,7 +97,7 @@ public class Slider_Controller : MonoBehaviour {
 	{
 		
 		relevant.sprite = frames [(int)(Time.time * fps) % frames.Length];
-		slider.value = (player.position.x - startPos.x) / (endPos.position.x - startPos.x) * progressSpeed;
+		slider.value = (player.position.x - startPos.x) / (endPos.position.x - startPos.x);
 	   
 
 		if (slider.value >= .25f && !flagOne) 
@@ -108,7 +106,7 @@ public class Slider_Controller : MonoBehaviour {
 			StartCoroutine("SpawnCoroutine");
             //Destroy (oneQuarter.gameObject);
 
-            abyss.GetComponent<FollowerDeadZone>().Speed = 3.25f;
+            abyss.GetComponent<FollowerDeadZone>().Speed = 5.00f;
             source.PlayOneShot(roarNoise1,0.25f);
 		}
 		else if (slider.value >= .5f && !flagTwo) 
@@ -118,11 +116,12 @@ public class Slider_Controller : MonoBehaviour {
 			spawnTeeth();
 			StartCoroutine("SpeedBite");
 			//Destroy (oneHalf.gameObject);
-			abyss.GetComponent<FollowerDeadZone>().Speed = 3.7f;
+			abyss.GetComponent<FollowerDeadZone>().Speed = 5.75f;
             source.PlayOneShot(roarNoise2, 0.5f);
         } 
 		else if (slider.value >= .75f && !flagThree) 
 		{
+			StartCoroutine("SpawnEye");
 			flagThree = true;
 			//spawnEyes();
             //Destroy (threeQuarter.gameObject);
@@ -147,7 +146,7 @@ public class Slider_Controller : MonoBehaviour {
 	} */
 
 	IEnumerator SpawnEye() {
-		float timeToSpawn = 10.0f;
+		float timeToSpawn = 5.0f;
 		while (true) {
 			yield return new WaitForSeconds(timeToSpawn);
 			var enemyFollowerBounds = enemyFollower.GetComponent<BoxCollider2D>().bounds;

@@ -18,9 +18,9 @@ public class PlayerController : MonoBehaviour
     public float jumpForce = 1000f;
     public float dashFall = 30f;
     public LayerMask groundLayer;
-    public float WaitTimeToRejump = 0.3f;
-    public float WaitTimeToReDash = 0.3f;
-    public float DashTime = 0.2f;
+    public float WaitTimeToRejump = 0.1f;
+    public float WaitTimeToReDash = 0.01f;
+    public float DashTime = 0.05f;
 
     public GameObject SpriteJumpSmoke;
     public GameObject ParticleToSpawnOnJump;
@@ -75,11 +75,17 @@ public class PlayerController : MonoBehaviour
         }
 
         //if (grounded && anim.GetCurrentAnimatorStateInfo(0).IsName("PlayerFalling"))
-        if(grounded)
+        if(!groundedLastFrame)
         {
-            anim.SetTrigger("TouchGround");
-        } else  {
+            if (grounded) {
+               
+                anim.SetTrigger("TouchGround");
+            }
+        } 
+        if(!grounded) {
             anim.ResetTrigger("TouchGround");
+        } else {
+             anim.SetTrigger("TouchGround");
         }
 
         if (Input.GetButtonDown("Jump") && grounded && jumpable && !(Input.GetAxis("Vertical") < 0))
@@ -89,7 +95,7 @@ public class PlayerController : MonoBehaviour
             
         if (Input.GetButtonDown("Jump") && (Input.GetAxis("Vertical") < 0))
         {
-            if (!isDead) {
+            if (!isDead && !isDashing && !dash) {
                 dash = true;
                 anim.SetTrigger("Dash"); 
             }
@@ -99,7 +105,7 @@ public class PlayerController : MonoBehaviour
     void FixedUpdate()
     {
         anim.SetFloat("Speed", Mathf.Abs(speed));
-        anim.SetFloat("VelocityFalling", GetComponent<Rigidbody2D>().velocity.y);
+        anim.SetFloat("VelocityFalling", rb.velocity.y);
 
         if (!isDashing)
         {
@@ -116,6 +122,7 @@ public class PlayerController : MonoBehaviour
             source.PlayOneShot(dashNoise2);
             StartCoroutine(Dash(DashTime));
         }
+
 
         if (slowDownDash)
         {
@@ -154,6 +161,7 @@ public class PlayerController : MonoBehaviour
             yield return null;
         }
         StartCoroutine(WaitBeforeDash());
+      
         StopCoroutine(ghostCoroutine); 
         slowDownDash = true;
     }
