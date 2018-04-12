@@ -122,6 +122,7 @@ public class Slider_Controller : MonoBehaviour {
 		else if (slider.value >= .75f && !flagThree) 
 		{
 			StartCoroutine("SpawnEye");
+			abyss.GetComponent<FollowerDeadZone>().Speed = 6.00f;
 			flagThree = true;
 			//spawnEyes();
             //Destroy (threeQuarter.gameObject);
@@ -182,7 +183,7 @@ public class Slider_Controller : MonoBehaviour {
 			
 				hookTransform.rotation =  Quaternion.Euler(0, 0, Random.Range(-10f, 10f)); 
 				newPos.y = newPos.y + Random.Range(-0.5f, 0.5f); 
-				newPos.x = newPos.x += Random.Range(0.0f, 0.5f); 
+				newPos.x = newPos.x += Random.Range(-0.25f, 0.25f); 
 				
 				hooks[i].transform.position = newPos; 
 				anim.SetTrigger("pierceTrigger"); 
