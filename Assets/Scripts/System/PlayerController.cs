@@ -11,6 +11,9 @@ public class PlayerController : MonoBehaviour
     private bool isDashing = false;
     public bool isDead = false; 
 
+    public float fallMultiplier = 2.5f; 
+    public float lowJumpMultiplier = 2f; 
+
     public float speed = 2f;
     public float dashSpeed = 4f;
     public float moveForce = 365f;
@@ -99,6 +102,13 @@ public class PlayerController : MonoBehaviour
                 dash = true;
                 anim.SetTrigger("Dash"); 
             }
+        }
+
+        if (rb.velocity.y < 0) 
+        {
+            rb.velocity += Vector2.up * Physics2D.gravity.y * (fallMultiplier - 1) * Time.deltaTime;
+        } else if (rb.velocity.y >0 && !Input.GetButton("Jump")) {
+            rb.velocity += Vector2.up * Physics2D.gravity.y * (lowJumpMultiplier - 1) * Time.deltaTime;
         }
     }
 
